@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LUNA</title>
+<style type="text/css">
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.caja {
+	width:560px;
+	height:300px;
+	overflow:hidden;
+	position:absolute;
+	clip:rect(0px 560px 300px 0px);
+}
+#foto {
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+	
+#texto {
+	top: 330px;
+	position: absolute;
+	font-size: xx-large;
+}
+</style>
+<script>
+var mod = 560;
+var mody = 300;
+var num = 36;
+var numh = 6;
+var numv = 6;
+function mover(event){
+	var ancho = window.innerWidth;
+	//posición del ratón
+	var x=event.clientX;
+	
+	var regla = Math.floor(x/(ancho/num))	
+	foto.style.left= -(regla%numh*mod)+'px';	
+	foto.style.top= -(Math.floor(regla/numv)*mody)+'px';
+	
+	texto.innerHTML = regla%numh + ' ' + Math.floor(regla/numv)
+	}
+</script>
+
+</head>
+
+<body onMouseMove="mover(event)">
+<div class="caja">
+<img id="foto" src="yaris.jpg" width="3360" height="1800" alt=""/> </div>
+<div id="texto"></div>
+</body>
+</html>
